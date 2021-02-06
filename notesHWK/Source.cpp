@@ -1,17 +1,21 @@
 #include <iostream>
-#include <cstdlib>   // Enables use of rand()
+#include <string>
+#include <cctype>
 using namespace std;
 
-int main()
-{
-	int seedVal;
+int main() {
+    string passCode;
 
-	cin >> seedVal;
+    cin >> passCode;
 
-	srand(seedVal);
+    for (int i = 0; i < passCode.size(); i++)
+    {
+        if (isalpha(passCode.at(i)) == true)
+        {
+            passCode.replace(passCode.at(i), passCode.size(), "_");
+        }
+    }
 
-	cout << (rand() % 10) + seedVal << endl;
-	cout << (rand() % 10) + seedVal << endl;
-
-	return 0;
+    cout << passCode << endl;
+    return 0;
 }

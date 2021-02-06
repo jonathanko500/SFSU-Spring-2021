@@ -1,2 +1,4 @@
 ﻿  Source.cpp
+C:\Users\Jonathan\Desktop\SFSU-Spring-2021\notesHWK\Source.cpp(11,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Jonathan\Desktop\SFSU-Spring-2021\notesHWK\Source.cpp(13,40): warning C4805: '==': unsafe mix of type 'int' and type 'bool' in operation
   notesHWK.vcxproj -> C:\Users\Jonathan\Desktop\SFSU-Spring-2021\notesHWK\Debug\notesHWK.exe
