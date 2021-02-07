@@ -1,0 +1,11 @@
+﻿  Source.cpp
+C:\Users\Jonathan\Desktop\SFSU-Spring-2021\Lab\2.30\Source.cpp(20,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Jonathan\Desktop\SFSU-Spring-2021\Lab\2.30\Source.cpp(22,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Jonathan\Desktop\SFSU-Spring-2021\Lab\2.30\Source.cpp(23,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Jonathan\Desktop\SFSU-Spring-2021\Lab\2.30\Source.cpp(24,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Jonathan\Desktop\SFSU-Spring-2021\Lab\2.30\Source.cpp(27,48): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Jonathan\Desktop\SFSU-Spring-2021\Lab\2.30\Source.cpp(30,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Jonathan\Desktop\SFSU-Spring-2021\Lab\2.30\Source.cpp(31,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Jonathan\Desktop\SFSU-Spring-2021\Lab\2.30\Source.cpp(32,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Jonathan\Desktop\SFSU-Spring-2021\Lab\2.30\Source.cpp(35,48): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  2.30.vcxproj -> C:\Users\Jonathan\Desktop\SFSU-Spring-2021\Lab\2.30\Debug\2.30.exe
