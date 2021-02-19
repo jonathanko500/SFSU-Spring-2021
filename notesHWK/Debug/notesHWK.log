@@ -1,11 +1,5 @@
 ﻿  Source.cpp
-C:\Users\Jonathan\Desktop\SFSU-Spring-2021\notesHWK\Source.cpp(20,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Jonathan\Desktop\SFSU-Spring-2021\notesHWK\Source.cpp(22,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Jonathan\Desktop\SFSU-Spring-2021\notesHWK\Source.cpp(23,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Jonathan\Desktop\SFSU-Spring-2021\notesHWK\Source.cpp(24,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Jonathan\Desktop\SFSU-Spring-2021\notesHWK\Source.cpp(27,48): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Jonathan\Desktop\SFSU-Spring-2021\notesHWK\Source.cpp(30,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Jonathan\Desktop\SFSU-Spring-2021\notesHWK\Source.cpp(31,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Jonathan\Desktop\SFSU-Spring-2021\notesHWK\Source.cpp(32,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Jonathan\Desktop\SFSU-Spring-2021\notesHWK\Source.cpp(35,48): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Jonathan\Desktop\SFSU-Spring-2021\notesHWK\Source.cpp(14,19): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Jonathan\Desktop\SFSU-Spring-2021\notesHWK\Source.cpp(19,19): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Jonathan\Desktop\SFSU-Spring-2021\notesHWK\Source.cpp(21,15): warning C4018: '<': signed/unsigned mismatch
   notesHWK.vcxproj -> C:\Users\Jonathan\Desktop\SFSU-Spring-2021\notesHWK\Debug\notesHWK.exe
