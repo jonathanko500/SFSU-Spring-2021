@@ -18,7 +18,7 @@ int GetNumOfNonWSCharacters(string x)
 }//end check for # !space char
 
 //# words
-int GetNumOfWords(string x)
+Int GetNumOfWords(const string& x)
 {//start count of num words
 	int count = 1;
 	for (int i = 0; i < x.size(); i++)
@@ -37,15 +37,20 @@ int FindText(string x, string word)
 {//start find
 	int i = 0;
 	int count = 0;
-	while (x[i] != '\0') {
-		if (x[i] == word[0]) {
+	while (x[i] != '\0')
+	{//look through word
+		if (x[i] == word[0])
+		{//check to see if letters is the same as first letter as word
 			int k = i;
 			int j = 0;
-			while (word[j] != '\0') {
-				if (word[j] != x[k]) {
+			while (word[j] != '\0')
+			{
+				if (word[j] != x[k])
+				{
 					break;
 				}
-				if (word[j + 1] == '\0') {
+				if (word[j + 1] == '\0')
+				{
 					count += 1;
 				}
 				k++;
@@ -53,7 +58,7 @@ int FindText(string x, string word)
 			}
 		}
 		i++;
-	}
+	}//end look through word
 	return count;
 }//end find
 
