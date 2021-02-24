@@ -1,0 +1,2 @@
+C:\Users\Jonathan\Desktop\SFSU-Spring-2021\Lab\5.8\x64\Debug\5.8.exe
+C:\Users\Jonathan\Desktop\SFSU-Spring-2021\Lab\5.8\x64\Debug\5.8.pdb

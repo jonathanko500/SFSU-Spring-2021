@@ -2,6 +2,31 @@
 #include <string>
 using namespace std;
 
+int GetNumOfNonWSCharacters(string x);
+int GetNumOfWords(const string& x);
+int FindText(string x, string target);
+void ReplaceExclamation(string x);
+void ShortenSpace(string x);
+void PrintMenu(string x);
+
+
+
+
+int main()
+{//start main
+
+	//reads/input text
+	string text;
+	cout << "Enter sample text: ";
+	getline(cin, text);
+	
+	//display menu
+	PrintMenu(text);
+
+	return 0;
+}//end main
+
+
 //# !spaces char
 int GetNumOfNonWSCharacters(string x)
 {//start check for # !space char
@@ -18,7 +43,7 @@ int GetNumOfNonWSCharacters(string x)
 }//end check for # !space char
 
 //# words
-Int GetNumOfWords(const string& x)
+int GetNumOfWords(const string& x)
 {//start count of num words
 	int count = 1;
 	for (int i = 0; i < x.size(); i++)
@@ -33,23 +58,23 @@ Int GetNumOfWords(const string& x)
 }//end count of num words
 
 //# of text/phrase
-int FindText(string x, string word)
+int FindText(string x, string target)
 {//start find
 	int i = 0;
 	int count = 0;
 	while (x[i] != '\0')
 	{//look through word
-		if (x[i] == word[0])
+		if (x[i] == target[0])
 		{//check to see if letters is the same as first letter as word
 			int k = i;
 			int j = 0;
-			while (word[j] != '\0')
+			while (target[j] != '\0')
 			{
-				if (word[j] != x[k])
+				if (target[j] != x[k])
 				{
 					break;
 				}
-				if (word[j + 1] == '\0')
+				if (target[j + 1] == '\0')
 				{
 					count += 1;
 				}
@@ -64,30 +89,39 @@ int FindText(string x, string word)
 
 //change puncuation
 void ReplaceExclamation(string x)
-{//start look		
+{//start look
+	cout << "Edited text: " ;
 	for (int i = 0; i < x.size(); i++)
 	{//start look through string + making new/edited string
 		if (x[i] == '!')
 		{
-			x.replace(i, 1, ".");
+			cout << ".";
+		}
+		else
+		{
+			cout << x[i];
 		}
 	}//end look through
-
-	cout << "Edited text: " << x << endl;
+	cout << endl;	
 }//end look
 
 //shorten space
 void ShortenSpace(string x)
 {//start looking
+	cout << "Edited text: ";
 	for (int i = 0; i < x.size(); i++)
 	{//start look through string + making new/edited string
-		if (x[i] == ' ' && x[i+1] == ' ')
+		if (x[i] == ' ' && x[i + 1] == ' ')
 		{
-			x.replace(i, 2, " ");
+			cout << " ";
+			i++;
+		}
+		else
+		{
+			cout << x[i];
 		}
 	}//end look through
-
-	cout << "Edited text: " << x << endl;
+	cout << endl;
 }//end looking
 
 //print menu
@@ -158,7 +192,7 @@ void PrintMenu(string x)
 			cin >> target;
 			phrase = FindText(x, target);
 			cout << "\"" << target << "\"" << " instances: " << phrase << endl;
-			
+
 		}
 
 		//replace "!" w/ "."
@@ -176,17 +210,3 @@ void PrintMenu(string x)
 }//end
 
 
-
-int main()
-{//start main
-
-	//reads/input text
-	string text;
-	cout << "Enter sample text: ";
-	getline(cin, text);
-	
-	//display menu
-	PrintMenu(text);
-
-	return 0;
-}//end main
