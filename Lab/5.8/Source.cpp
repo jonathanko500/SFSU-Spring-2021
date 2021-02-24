@@ -19,7 +19,7 @@ int main()
 	string text;
 	cout << "Enter sample text: ";
 	getline(cin, text);
-	
+
 	//display menu
 	PrintMenu(text);
 
@@ -90,7 +90,7 @@ int FindText(string x, string target)
 //change puncuation
 void ReplaceExclamation(string x)
 {//start look
-	cout << "Edited text: " ;
+	cout << "Edited text: ";
 	for (int i = 0; i < x.size(); i++)
 	{//start look through string + making new/edited string
 		if (x[i] == '!')
@@ -102,7 +102,7 @@ void ReplaceExclamation(string x)
 			cout << x[i];
 		}
 	}//end look through
-	cout << endl;	
+	cout << endl;
 }//end look
 
 //shorten space
@@ -208,5 +208,3 @@ void PrintMenu(string x)
 		}
 	}//end loop to display options
 }//end
-
-
