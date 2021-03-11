@@ -1,1 +1,3 @@
 C:\Users\Jonathan\Desktop\SFSU-Spring-2021\Lab\7.6\Debug\7.6.exe
+C:\Users\Pie88\OneDrive\Desktop\SFSU-Spring-2021\Lab\7.6\Debug\7.6.exe
+C:\Users\Pie88\OneDrive\Desktop\SFSU-Spring-2021\Lab\7.6\Debug\7.6.pdb

@@ -16,19 +16,21 @@ void matrixInit(vector< vector<int> >& matrix, int numRows, int numCols);
 bool operator<=(const TokenFreq& o1, const TokenFreq& o2);
 const TokenFreq operator+ (const TokenFreq& o1, const TokenFreq o2);
 ostream& operator<<(ostream& os, const TokenFreq& o1);
+void getTokenFreqVec(string& istr, vector<TokenFreq>& tfVec);
+
 
 
 
 int main()
 {//start main
 	
+	
 	//start test matrixInit
 	int row, col;
 	vector <vector<int> > list;
 	cin >> row;
 	cin >> col;
-	
-	
+	/*
 	matrixInit(list, row, col);
 	cout << "Size of matrix is: " << row << "x" << col << endl;
 	for (int i = 0; i < row; i++)
@@ -40,7 +42,9 @@ int main()
 	}//end look through row
 
 	//end test matrixInit
-	
+	*/
+
+
 	//start TokenFreq tests
 	TokenFreq obj1, obj2;
 
@@ -51,7 +55,7 @@ int main()
 	cin >> obj2.freq;
 	cin >> obj2.token;
 
-	
+	/*
 	//start <= test
 	if (obj1 <= obj2)
 	{
@@ -63,18 +67,21 @@ int main()
 	}
 	cout << endl;
 	//end <= test
-	
+	*/
 
-	
+	/*
 	//start test << 
 	cout << obj1 << endl;
 	cout << obj2 << endl;
 	//end text <<
-	
+	*/
 
+
+	/*
 	//start test +
 	TokenFreq obj3 = obj1 + obj2;
-	cout << obj3.token << " and " << obj3.freq << endl;
+	cout << obj3 << endl;
+	*/
 
 
 }//end main
