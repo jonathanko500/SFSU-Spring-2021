@@ -14,6 +14,7 @@ void matrixInit(vector< vector<int> >& matrix, int numRows, int numCols);
 
 //struct func
 bool operator<=(const TokenFreq& o1, const TokenFreq& o2);
+const TokenFreq operator+ (const TokenFreq& o1, const TokenFreq o2);
 ostream& operator<<(ostream& os, const TokenFreq& o1);
 
 
@@ -49,6 +50,7 @@ int main()
 	//declare obj2
 	cin >> obj2.freq;
 	cin >> obj2.token;
+
 	
 	//start <= test
 	if (obj1 <= obj2)
@@ -61,6 +63,19 @@ int main()
 	}
 	cout << endl;
 	//end <= test
+	
+
+	
+	//start test << 
+	cout << obj1 << endl;
+	cout << obj2 << endl;
+	//end text <<
+	
+
+	//start test +
+	TokenFreq obj3 = obj1 + obj2;
+	cout << obj3.token << " and " << obj3.freq << endl;
+
 
 }//end main
 
@@ -88,3 +103,18 @@ bool operator<=(const TokenFreq& o1, const TokenFreq& o2)
 		return false;
 	}
 }//end <= overload
+
+const TokenFreq operator+ (const TokenFreq& o1, const TokenFreq o2)
+{//start overload +
+	TokenFreq temp;
+	temp.token = o1.token + " or " + o2.token;
+	temp.freq = o1.freq + o2.freq;
+	return temp;
+}//end overload +
+
+ostream& operator<<(ostream& os, const TokenFreq& o1)
+{//start << overload
+	os << o1.token << " " << o1.freq;
+	return os;
+}//end << overload
+
