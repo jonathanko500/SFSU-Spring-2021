@@ -1,5 +1,6 @@
 #include <iostream> 
 #include <vector>
+#include <sstream>
 
 using namespace std;
 
@@ -23,14 +24,13 @@ void getTokenFreqVec(string& istr, vector<TokenFreq>& tfVec);
 
 int main()
 {//start main
-	
-	
+
 	//start test matrixInit
 	int row, col;
 	vector <vector<int> > list;
 	cin >> row;
 	cin >> col;
-	/*
+	
 	matrixInit(list, row, col);
 	cout << "Size of matrix is: " << row << "x" << col << endl;
 	for (int i = 0; i < row; i++)
@@ -42,7 +42,7 @@ int main()
 	}//end look through row
 
 	//end test matrixInit
-	*/
+	
 
 
 	//start TokenFreq tests
@@ -55,7 +55,7 @@ int main()
 	cin >> obj2.freq;
 	cin >> obj2.token;
 
-	/*
+	
 	//start <= test
 	if (obj1 <= obj2)
 	{
@@ -67,21 +67,35 @@ int main()
 	}
 	cout << endl;
 	//end <= test
-	*/
+	
 
-	/*
+	
 	//start test << 
 	cout << obj1 << endl;
 	cout << obj2 << endl;
 	//end text <<
-	*/
+	
 
 
-	/*
 	//start test +
 	TokenFreq obj3 = obj1 + obj2;
 	cout << obj3 << endl;
-	*/
+	//end test + 
+
+
+
+	//start getTokenFreqVec test
+	vector<TokenFreq> key;
+	string text;
+	cin >> text;
+	getTokenFreqVec(text, key);
+	for (int i = 0; i < key.size(); i++)
+	{
+		cout << i << " = (token = \"" << key[i].token << "\", freq = " << key[i].freq << ")" << endl;
+	}
+	//end getTokenFreqVec test
+
+
 
 
 }//end main
@@ -97,7 +111,6 @@ void matrixInit(vector< vector<int> >& matrix, int numRows, int numCols)
 		}//end look through columns
 	}//end look through row
 }//end matrix maker
-
 
 bool operator<=(const TokenFreq& o1, const TokenFreq& o2)
 {//start <= overload
@@ -124,4 +137,38 @@ ostream& operator<<(ostream& os, const TokenFreq& o1)
 	os << o1.token << " " << o1.freq;
 	return os;
 }//end << overload
+
+void getTokenFreqVec(string& istr, vector<TokenFreq>& tfVec)
+{//start func
+	stringstream stream(istr);//stream created to tell diff between string / num
+	string temp = "";
+	//string key;
+	TokenFreq tf;
+	while (stream >> temp)
+	{//start look through stream
+		
+		for (auto& key : temp)
+		{//makes temp lower case
+			key = tolower(key);
+		}		
+		
+		bool loop = false;//prevents repeat temp
+		for (auto& lock : tfVec)
+		{
+			if (lock.token == temp)
+			{
+				lock.freq++;
+				loop = true;
+			}
+		}
+		if (!loop)
+		{
+			tf.token = temp;
+			tf.freq = 1;
+			tfVec.push_back(tf);
+		}
+	}///end look through stream
+}//end func
+
+
 
