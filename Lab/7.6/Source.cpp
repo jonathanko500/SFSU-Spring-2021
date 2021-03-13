@@ -19,7 +19,7 @@ const TokenFreq operator+ (const TokenFreq& o1, const TokenFreq o2);
 ostream& operator<<(ostream& os, const TokenFreq& o1);
 void getTokenFreqVec(string& istr, vector<TokenFreq>& tfVec);
 void selectionSort(vector<TokenFreq>& tokFreqVector);
-
+void insertionSort(vector<TokenFreq>& tokFreqVector);
 
 
 int main()
@@ -119,12 +119,33 @@ int main()
 	one.freq = 1000;
 	sortS.push_back(k);
 
+
+	//start selection sort
 	selectionSort(sortS);
 	for (int i = 0; i < sortS.size(); i++)
 	{
 		cout << sortS.at(i).token << " and " << sortS.at(i).freq << endl;
 	}
+	//end selection sort
 
+
+	//start insertion sort
+	vector<TokenFreq> sortX;
+
+
+	sortX.push_back(one);
+
+	sortX.push_back(thirty);
+
+	sortX.push_back(k);
+
+	//start insertion sort
+	insertionSort(sortX);
+	for (int i = 0; i < sortX.size(); i++)
+	{
+		cout << sortX.at(i).token << " and " << sortX.at(i).freq << endl;
+	}
+	//end insertion sort
 }//end main
 
 void matrixInit(vector< vector<int> >& matrix, int numRows, int numCols)
@@ -170,7 +191,7 @@ void getTokenFreqVec(string& istr, vector<TokenFreq>& tfVec)
 	stringstream stream(istr);//stream created to tell diff between string / num
 	string temp = "";
 	//string key;
-	TokenFreq tf;
+	TokenFreq x;
 	while (stream >> temp)
 	{//start look through stream
 		for (auto& key : temp)
@@ -189,9 +210,9 @@ void getTokenFreqVec(string& istr, vector<TokenFreq>& tfVec)
 		}//end compare + count
 		if (!loop)
 		{//puts token and freq in vector
-			tf.token = temp;
-			tf.freq = 1;
-			tfVec.push_back(tf);
+			x.token = temp;
+			x.freq = 1;
+			tfVec.push_back(x);
 		}
 	}///end look through stream
 }//end func
@@ -216,6 +237,20 @@ void selectionSort(vector<TokenFreq>& tokFreqVector)
 		}
 	}//end look through vector
 }//end selection sort
+
+void insertionSort(vector<TokenFreq>& tokFreqVector)
+{//start insertion sort
+	int hold;// element used to compare with other
+	for (int i = 1; i < tokFreqVector.size(); i++)
+	{//start look through vector
+		hold = i;
+		while (hold > 0 && tokFreqVector[hold].freq > tokFreqVector[hold - 1].freq)
+		{//start compare + swap hold with previous elements 
+			swap(tokFreqVector[hold-1],tokFreqVector[hold]);
+			hold--;
+		}//end compare + swap hold with previous element
+	}//end look through vector
+}//end insertion sort
 
 
 
