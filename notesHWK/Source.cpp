@@ -5,29 +5,42 @@
 #include <vector>
 using namespace std;
 
-int main()
+class DogLicense {
+public:
+    void   SetYear(int yearRegistered);
+    void   CreateLicenseNum(int customID);
+    int    GetLicenseNum() const;
+private:
+    int    licenseYear;
+    int    licenseNum;
+};
+
+void DogLicense::SetYear(int yearRegistered) {
+    licenseYear = yearRegistered;
+}
+
+// FIXME: Write CreateLicenseNum()
+
+void DogLicense::CreateLicenseNum(int customId)
 {
-    const int NUM_VALS = 4;
-    unsigned int i;
-    vector<int> hourlyTemp(NUM_VALS);
+    licenseNum = (100000 * customId) + licenseYear;
+}
 
-    for (i = 0; i < hourlyTemp.size(); ++i) {
-        cin >> hourlyTemp.at(i);
-    }
+int DogLicense::GetLicenseNum() const {
+    return licenseNum;
+}
 
-    for (i = 0; i < hourlyTemp.size(); ++i)
-    {
-        if (i == hourlyTemp.size() - 1)
-        {
-            cout << hourlyTemp.at(i);
-        }
-        else
-        {
-            cout << hourlyTemp.at(i) << ", ";
-        }
-    }
+int main() {
+    DogLicense dog1;
+    int userYear;
+    int userId;
 
-    cout << endl;
+    cin >> userYear;
+    cin >> userId;
+
+    dog1.SetYear(userYear);
+    dog1.CreateLicenseNum(userId);
+    cout << "Dog license: " << dog1.GetLicenseNum() << endl;
 
     return 0;
 }
