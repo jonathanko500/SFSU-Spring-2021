@@ -5,42 +5,34 @@
 #include <vector>
 using namespace std;
 
-class DogLicense {
+class Pet {
 public:
-    void   SetYear(int yearRegistered);
-    void   CreateLicenseNum(int customID);
-    int    GetLicenseNum() const;
+    Pet(string petName = "NoName", int yearsOld = -9999);
+    void Print();
+
 private:
-    int    licenseYear;
-    int    licenseNum;
+    string name;
+    int age;
 };
 
-void DogLicense::SetYear(int yearRegistered) {
-    licenseYear = yearRegistered;
+Pet::Pet(string petName, int yearsOld) {
+    name = petName;
+    age = yearsOld;
 }
 
-// FIXME: Write CreateLicenseNum()
-
-void DogLicense::CreateLicenseNum(int customId)
-{
-    licenseNum = (100000 * customId) + licenseYear;
-}
-
-int DogLicense::GetLicenseNum() const {
-    return licenseNum;
+void Pet::Print() {
+    cout << name << ", " << age << endl;
 }
 
 int main() {
-    DogLicense dog1;
-    int userYear;
-    int userId;
+    Pet dog;
+    Pet cat("Cleo");
+    Pet bird("Kiwi", 6);
 
-    cin >> userYear;
-    cin >> userId;
-
-    dog1.SetYear(userYear);
-    dog1.CreateLicenseNum(userId);
-    cout << "Dog license: " << dog1.GetLicenseNum() << endl;
+    cat.Print();
+    dog.Print();
+    bird.Print();
 
     return 0;
 }
+
