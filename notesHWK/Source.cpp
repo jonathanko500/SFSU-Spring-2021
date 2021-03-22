@@ -5,52 +5,77 @@
 #include <vector>
 using namespace std;
 
-class Movie {
+class Song {
 public:
-    Movie(string movieTitle);
-    void SetVotes(int numUpVotes, int numDownVotes) {
-        upVotes = numUpVotes;
-        downVotes = numDownVotes;
+    void SetDurationAndName(int songDuration, string songName) {
+        duration = songDuration;
+        name = songName;
     }
-    string GetTitle() const { return title; }
-    int GetVoteDifference() const { return upVotes - downVotes; }
+    void PrintSong() const {
+        cout << duration << " - " << name << endl;
+    }
+    int GetDuration() const { return duration; }
+    string GetName() const { return name; }
 
 private:
-    string title;
-    int upVotes;
-    int downVotes;
+    int duration;
+    string name;
 };
 
-Movie::Movie(string movieTitle) {
-    title = movieTitle;
-    upVotes = 0;
-    downVotes = 0;
+class Album {
+public:
+    void SetName(string albumName) { name = albumName; }
+    void InputSongs();
+    void PrintName() const { cout << name << endl; }
+    void PrintSongsLongerThan(int songDuration) const;
+
+private:
+    string name;
+    vector<Song> albumSongs;
+};
+
+void Album::InputSongs() {
+    Song currSong;
+    int currDuration;
+    string currName;
+
+    cin >> currDuration;
+    while (currDuration >= 0) {
+        getline(cin, currName);
+        currSong.SetDurationAndName(currDuration, currName);
+        albumSongs.push_back(currSong);
+        cin >> currDuration;
+    }
 }
 
-bool operator<(const Movie& movie1, const Movie& movie2) {
-    return movie1.GetVoteDifference() < movie2.GetVoteDifference();
+void Album::PrintSongsLongerThan(int songDuration) const {
+    unsigned int i;
+    Song currSong;
+
+    cout << "Songs longer than " << songDuration << " seconds:" << endl;
+
+    for (int i = 0; i < albumSongs.size(); i++)
+    {
+        currSong = albumSongs.at(i);
+        if (currSong.GetDuration() > songDuration)
+        {
+            currSong.PrintSong();
+        }
+    }
+
+    
+    
 }
 
 int main() {
-    vector<Movie> movieList;
-    Movie movie1("Batman");
-    Movie movie2("Up");
-    Movie movie3("It");
-    Movie movie4("Frozen");
+    Album musicAlbum;
+    string albumName;
 
-    movie1.SetVotes(11, 2);
-    movie2.SetVotes(15, 13);
-    movie3.SetVotes(15, 4);
-    movie4.SetVotes(13, 7);
-
-    movieList.push_back(movie1);
-    movieList.push_back(movie2);
-    movieList.push_back(movie3);
-    movieList.push_back(movie4);
-
-    sort(movieList.begin(), movieList.end());
-
-    cout << movieList.back().GetTitle() << " is the best." << endl;
+    getline(cin, albumName);
+    musicAlbum.SetName(albumName);
+    musicAlbum.InputSongs();
+    musicAlbum.PrintName();
+    musicAlbum.PrintSongsLongerThan(210);
 
     return 0;
 }
