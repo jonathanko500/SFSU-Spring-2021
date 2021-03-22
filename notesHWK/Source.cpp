@@ -5,77 +5,48 @@
 #include <vector>
 using namespace std;
 
-class Song {
+class InventoryTag {
 public:
-    void SetDurationAndName(int songDuration, string songName) {
-        duration = songDuration;
-        name = songName;
-    }
-    void PrintSong() const {
-        cout << duration << " - " << name << endl;
-    }
-    int GetDuration() const { return duration; }
-    string GetName() const { return name; }
+    InventoryTag();
+    int getQuantityRemaining() const;
+    void addInventory(int numItems);
 
 private:
-    int duration;
-    string name;
+    int quantityRemaining;
 };
 
-class Album {
-public:
-    void SetName(string albumName) { name = albumName; }
-    void InputSongs();
-    void PrintName() const { cout << name << endl; }
-    void PrintSongsLongerThan(int songDuration) const;
-
-private:
-    string name;
-    vector<Song> albumSongs;
-};
-
-void Album::InputSongs() {
-    Song currSong;
-    int currDuration;
-    string currName;
-
-    cin >> currDuration;
-    while (currDuration >= 0) {
-        getline(cin, currName);
-        currSong.SetDurationAndName(currDuration, currName);
-        albumSongs.push_back(currSong);
-        cin >> currDuration;
-    }
+InventoryTag::InventoryTag() {
+    quantityRemaining = 0;
 }
 
-void Album::PrintSongsLongerThan(int songDuration) const {
-    unsigned int i;
-    Song currSong;
+int InventoryTag::getQuantityRemaining() const {
+    return quantityRemaining;
+}
 
-    cout << "Songs longer than " << songDuration << " seconds:" << endl;
-
-    for (int i = 0; i < albumSongs.size(); i++)
-    {
-        currSong = albumSongs.at(i);
-        if (currSong.GetDuration() > songDuration)
-        {
-            currSong.PrintSong();
-        }
+void InventoryTag::addInventory(int numItems) {
+    if (numItems > 10) {
+        quantityRemaining = quantityRemaining + numItems;
     }
-
-    
-    
 }
 
 int main() {
-    Album musicAlbum;
-    string albumName;
+    InventoryTag redSweater;
+    int sweaterShipment;
+    int sweaterInventoryBefore;
 
-    getline(cin, albumName);
-    musicAlbum.SetName(albumName);
-    musicAlbum.InputSongs();
-    musicAlbum.PrintName();
-    musicAlbum.PrintSongsLongerThan(210);
+    sweaterInventoryBefore = redSweater.getQuantityRemaining();
+    cin >> sweaterShipment;
+
+    cout << "Beginning tests." << endl;
+
+    // FIXME add unit test for addInventory
+
+    redSweater.addInventory(sweaterShipment);
+    if (redSweater.getQuantityRemaining() != sweaterShipment) {
+        cout << "   UNIT TEST FAILED: addInventory()\n";
+    }
+
+    cout << "Tests complete." << endl;
 
     return 0;
 }
