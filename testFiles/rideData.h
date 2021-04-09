@@ -1,3 +1,5 @@
+#include <string>
+
 #ifndef RIDEDATA_H
 #define RIDEDATA_H
 
@@ -9,6 +11,7 @@ private:
 	string companyType;
 
 public:
+
 
 };//end class
 
