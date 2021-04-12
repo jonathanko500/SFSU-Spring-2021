@@ -32,7 +32,7 @@ public:
     //function to insert data from csv file 
 
     void vectorDataInsert();
-
+    void getDistance();
 };
 
 #endif

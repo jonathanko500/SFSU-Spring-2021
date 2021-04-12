@@ -9,5 +9,5 @@ int main()
 	CabRides car;
 
 	car.vectorDataInsert();
-	
+	car.getDistance();
 }//end main

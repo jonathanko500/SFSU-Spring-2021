@@ -28,7 +28,6 @@ void CabRides::vectorDataInsert()
 
 	while (ride >> place)
 	{//start reading rows 
-		ride.clear();
 
 		//puts row of data into line
 		getline(ride, line);
@@ -98,3 +97,10 @@ void CabRides::vectorDataInsert()
 
 }//end vector data insert
 
+void CabRides::getDistance()
+{
+	for (int i = 0; i < 20; i++)
+	{
+		cout << distance.at(i) << endl;
+	}
+}
