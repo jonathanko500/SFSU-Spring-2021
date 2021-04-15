@@ -5,48 +5,46 @@
 #include <vector>
 using namespace std;
 
-class InventoryTag {
-public:
-    InventoryTag();
-    int getQuantityRemaining() const;
-    void addInventory(int numItems);
 
+class Car {
+public:
+    Car(int distanceToSet = 0);
+    int GetDistanceTraveled() const;
 private:
-    int quantityRemaining;
+    int distanceTraveled;
 };
 
-InventoryTag::InventoryTag() {
-    quantityRemaining = 0;
+Car::Car(int distanceToSet) {
+    distanceTraveled = distanceToSet;
 }
 
-int InventoryTag::getQuantityRemaining() const {
-    return quantityRemaining;
+int Car::GetDistanceTraveled() const {
+    return distanceTraveled;
 }
 
-void InventoryTag::addInventory(int numItems) {
-    if (numItems > 10) {
-        quantityRemaining = quantityRemaining + numItems;
+int GetTotalMiles(vector<Car*> carsList) {
+    int totalMiles;
+    unsigned int i;
+
+    totalMiles = 0;
+
+    for (i = 0; i < carsList.size(); i++) {
+        totalMiles = totalMiles + carsList.at(i)->GetDistanceTraveled();
     }
+
+    return totalMiles;
 }
 
 int main() {
-    InventoryTag redSweater;
-    int sweaterShipment;
-    int sweaterInventoryBefore;
+    vector<Car*> garage;
+    garage.push_back(new Car(10));
+    garage.push_back(new Car(40));
+    garage.push_back(new Car(5));
 
-    sweaterInventoryBefore = redSweater.getQuantityRemaining();
-    cin >> sweaterShipment;
-
-    cout << "Beginning tests." << endl;
-
-    // FIXME add unit test for addInventory
-
-    redSweater.addInventory(sweaterShipment);
-    if (redSweater.getQuantityRemaining() != sweaterShipment) {
-        cout << "   UNIT TEST FAILED: addInventory()\n";
-    }
-
-    cout << "Tests complete." << endl;
+    cout << "Traveled: " << GetTotalMiles(garage) << endl;
+    delete garage.at(1);
+    garage.erase(garage.begin() + 1);
+    cout << "Traveled: " << GetTotalMiles(garage) << endl;
 
     return 0;
 }
