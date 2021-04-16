@@ -6,45 +6,36 @@
 using namespace std;
 
 
-class Car {
+class Airplane {
 public:
-    Car(int distanceToSet = 0);
-    int GetDistanceTraveled() const;
+    Airplane();
+    void AddPassengers(int passengers);
+    int GetAvailableSeats() const;
 private:
-    int distanceTraveled;
+    int totalSeats;
+    int passengers;
 };
 
-Car::Car(int distanceToSet) {
-    distanceTraveled = distanceToSet;
+Airplane::Airplane() {
+    totalSeats = 350;
+    passengers = 0;
 }
 
-int Car::GetDistanceTraveled() const {
-    return distanceTraveled;
+void Airplane::AddPassengers(int passengers) {
+    this->passengers = this->passengers + passengers;
 }
 
-int GetTotalMiles(vector<Car*> carsList) {
-    int totalMiles;
-    unsigned int i;
-
-    totalMiles = 0;
-
-    for (i = 0; i < carsList.size(); i++) {
-        totalMiles = totalMiles + carsList.at(i)->GetDistanceTraveled();
-    }
-
-    return totalMiles;
+int Airplane::GetAvailableSeats() const {
+    return totalSeats - passengers;
 }
 
 int main() {
-    vector<Car*> garage;
-    garage.push_back(new Car(10));
-    garage.push_back(new Car(40));
-    garage.push_back(new Car(5));
+    Airplane airbus330;
 
-    cout << "Traveled: " << GetTotalMiles(garage) << endl;
-    delete garage.at(1);
-    garage.erase(garage.begin() + 1);
-    cout << "Traveled: " << GetTotalMiles(garage) << endl;
+    airbus330.AddPassengers(1);
+    airbus330.AddPassengers(8);
+
+    cout << airbus330.GetAvailableSeats() << " seats" << endl;
 
     return 0;
 }
