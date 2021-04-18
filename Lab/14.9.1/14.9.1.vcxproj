@@ -139,7 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Book.cpp" />
+    <ClCompile Include="BookNode.cpp" />
+    <ClCompile Include="LinkedListLibrary.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="VectorLibrary.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Book.h" />

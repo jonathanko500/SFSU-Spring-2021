@@ -1,4 +1,6 @@
-#pragma once
+#ifndef BOOKNODEH
+#define BOOKNODEH
+
 #include <string>
 using namespace std;
 
