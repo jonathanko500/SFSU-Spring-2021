@@ -1,41 +1,77 @@
+#pragma warning(disable:4996)//disable warning sign for cstrings
 #include <iostream>
 #include <string>
+#include <cstring>
 #include <cctype>
 #include <iomanip>
 #include <vector>
+
 using namespace std;
 
-
-class Airplane {
+class SubstituteTeacher {
 public:
-    Airplane();
-    void AddPassengers(int passengers);
-    int GetAvailableSeats() const;
+    SubstituteTeacher();
+    ~SubstituteTeacher();
+    SubstituteTeacher& operator=(const SubstituteTeacher& objToCopy);
+
+    // New: grade pointer member in SubstituteTeacher
+    void SetSubjectAndGrade(string setSubject, int setGrade) {
+        *grade = setGrade;
+        *subject = setSubject;
+    }
+
+    void Print();
 private:
-    int totalSeats;
-    int passengers;
+    int* grade;
+    string* subject;
 };
 
-Airplane::Airplane() {
-    totalSeats = 350;
-    passengers = 0;
+SubstituteTeacher::SubstituteTeacher() {
+    subject = new string;
+    *subject = "none";
+    grade = new int;
+    *grade = 0;
 }
 
-void Airplane::AddPassengers(int passengers) {
-    this->passengers = this->passengers + passengers;
+SubstituteTeacher::~SubstituteTeacher() {
+    delete grade;
+    delete subject;
 }
 
-int Airplane::GetAvailableSeats() const {
-    return totalSeats - passengers;
+// New: assignment operator also copies grade member
+SubstituteTeacher& SubstituteTeacher::operator=(const SubstituteTeacher& objToCopy) {
+    if (this != &objToCopy) {
+        delete subject;
+        subject = new string;
+        *subject = *(objToCopy.subject);
+
+        delete grade;
+        grade = new int;
+        *grade = *(objToCopy.grade);
+    }
+
+    return *this;
+}
+
+// New: Print function
+void SubstituteTeacher::Print() {
+    cout << *grade << ": " << *subject << endl;
 }
 
 int main() {
-    Airplane airbus330;
+    SubstituteTeacher msWong;
+    SubstituteTeacher mrPark;
+    SubstituteTeacher mrDorf;
 
-    airbus330.AddPassengers(1);
-    airbus330.AddPassengers(8);
+    msWong.SetSubjectAndGrade("Math", 4);
+    mrPark.SetSubjectAndGrade("History", 2);
+    mrDorf.SetSubjectAndGrade("Music", 6);
 
-    cout << airbus330.GetAvailableSeats() << " seats" << endl;
+    mrPark = msWong;
+    msWong = mrDorf;
+
+    mrPark.Print();
+    msWong.Print();
 
     return 0;
 }
