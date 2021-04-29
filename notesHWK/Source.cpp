@@ -8,70 +8,59 @@
 
 using namespace std;
 
-class SubstituteTeacher {
+class AnimalData {
 public:
-    SubstituteTeacher();
-    ~SubstituteTeacher();
-    SubstituteTeacher& operator=(const SubstituteTeacher& objToCopy);
+    void SetName(string givenName) {
+        fullName = givenName;
+    };
+    void SetAge(int numYears) {
+        ageYears = numYears;
+    };
+    // Other parts omitted
 
-    // New: grade pointer member in SubstituteTeacher
-    void SetSubjectAndGrade(string setSubject, int setGrade) {
-        *grade = setGrade;
-        *subject = setSubject;
-    }
+    void PrintAll() {
+        cout << "Name: " << fullName;
+        cout << ", Age: " << ageYears;
+    };
 
-    void Print();
 private:
-    int* grade;
-    string* subject;
+    int    ageYears;
+    string fullName;
 };
 
-SubstituteTeacher::SubstituteTeacher() {
-    subject = new string;
-    *subject = "none";
-    grade = new int;
-    *grade = 0;
-}
+class PetData : public AnimalData {
+public:
+    void SetID(int petID) {
+        idNum = petID;
+    };
 
-SubstituteTeacher::~SubstituteTeacher() {
-    delete grade;
-    delete subject;
-}
+    // FIXME: Add PrintAll() member function
 
-// New: assignment operator also copies grade member
-SubstituteTeacher& SubstituteTeacher::operator=(const SubstituteTeacher& objToCopy) {
-    if (this != &objToCopy) {
-        delete subject;
-        subject = new string;
-        *subject = *(objToCopy.subject);
+    /* Your solution goes here  */
+    void PrintAll() {
+        AnimalData::PrintAll();
+        cout << ", ID: " << idNum;
+    };
 
-        delete grade;
-        grade = new int;
-        *grade = *(objToCopy.grade);
-    }
-
-    return *this;
-}
-
-// New: Print function
-void SubstituteTeacher::Print() {
-    cout << *grade << ": " << *subject << endl;
-}
+private:
+    int idNum;
+};
 
 int main() {
-    SubstituteTeacher msWong;
-    SubstituteTeacher mrPark;
-    SubstituteTeacher mrDorf;
+    PetData userPet;
+    string userName;
+    int userAge;
+    int userID;
 
-    msWong.SetSubjectAndGrade("Math", 4);
-    mrPark.SetSubjectAndGrade("History", 2);
-    mrDorf.SetSubjectAndGrade("Music", 6);
+    cin >> userName;
+    cin >> userAge;
+    cin >> userID;
 
-    mrPark = msWong;
-    msWong = mrDorf;
-
-    mrPark.Print();
-    msWong.Print();
+    userPet.SetName(userName);
+    userPet.SetAge(userAge);
+    userPet.SetID(userID);
+    userPet.PrintAll();
+    cout << endl;
 
     return 0;
 }
