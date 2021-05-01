@@ -1,2 +1,2 @@
 ﻿  Source.cpp
-C:\Users\Jonathan\Desktop\SFSU-Spring-2021\notesHWK\Source.cpp(34,10): error C3668: 'DerivedItem::PrintItem': method with override specifier 'override' did not override any base class methods
+  notesHWK.vcxproj -> C:\Users\Jonathan\Desktop\SFSU-Spring-2021\notesHWK\x64\Debug\notesHWK.exe
