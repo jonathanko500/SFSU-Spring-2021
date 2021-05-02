@@ -55,7 +55,7 @@ void VectorADT::operator= (const VectorADT& copy)
 //other functions
 
 //push_back
-void VectorADT::push_pack(double val)
+void VectorADT::push_back(double val)
 {//start
 	if (capacity == 0)
 	{//check to see if array is 1 element
@@ -123,3 +123,64 @@ void VectorADT::resize(int newSize)
 	}//end newSize > size
 }//end
 
+//pop back
+void VectorADT::pop_back()
+{//start
+	if (size > 0)
+	{
+		for (int i = 0; i < size; i++)
+		{
+			if (i = size - 1)
+			{
+				array[i] = 0.0;
+			}
+		}
+		size--;
+	}
+	else
+	{
+		size = 0;
+	}
+}//end
+
+//length
+int VectorADT::length() const
+{//start
+	return size;
+}//end 
+
+//operator []
+double& VectorADT::operator[](const int& pt)
+{//start
+	return array[pt];
+}//end
+
+//operator +
+VectorADT VectorADT:: operator+ (VectorADT add)
+{//start
+	VectorADT plus;
+	if (size == add.length())
+	{//make sure size of two ADT are same
+		for (int i = 0; i < size; i++)
+		{//start adding elements of two ADT into plus ADT
+			plus.push_back(array[i] + add[i]);
+		}
+	}
+	return plus;
+}//end
+
+//operator <<
+ostream& operator<<(ostream& out, const VectorADT& pt)
+{//start
+	for (int i = 0; i < pt.length(); i++)
+	{
+		out << pt.array[i] <<", ";
+	}
+	return out;
+}//end
+
+//curr capacity
+int VectorADT::curr_capacity() const
+{//start
+	return capacity;
+}//end

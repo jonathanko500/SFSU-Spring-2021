@@ -1,6 +1,10 @@
 #ifndef VECTORADT_H
 #define VECTORADT_H
 
+#include <iostream>
+
+using namespace std;
+
 class VectorADT
 {//start class
 private:
@@ -18,13 +22,13 @@ public:
 	void operator= (const VectorADT& copy);//assignment operator
 
 	//other functions
-	void push_pack(double val);
-	void resize(int newSize);
-	VectorADT operator[ ](const VectorADT& in);
-	VectorADT operator+ (const VectorADT& copy);
-	VectorADT operator<< (const VectorADT& copy);	
-	void pop_back();
-	int length() const;
+	void push_back(double val);//add val to end of array
+	void resize(int newSize);//resize array
+	void pop_back();//delete last element of array
+	int length() const;//return size
+	double& operator[](const int& pt);//return specific element
+	VectorADT operator+ (VectorADT add);//add two adt arrats
+	friend ostream& operator<<(ostream& out, const VectorADT& pt);//prints array
 	int curr_capacity() const;
 
 };//end class
