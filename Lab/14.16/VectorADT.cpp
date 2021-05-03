@@ -13,6 +13,7 @@ VectorADT::VectorADT() :size(0), capacity(10)
 	}
 }//end
 
+/*
 //big 3
 
 //destructor
@@ -51,9 +52,12 @@ void VectorADT::operator= (const VectorADT& copy)
 		array[i] = copy.array[i];
 	}
 }//end
+*/
+
+
 
 //other functions
-
+/*
 //push_back
 void VectorADT::push_back(double val)
 {//start
@@ -169,6 +173,8 @@ VectorADT VectorADT:: operator+ (VectorADT add)
 	return plus;
 }//end
 
+*/
+
 //operator <<
 ostream& operator<<(ostream& out, const VectorADT& pt)
 {//start
@@ -179,8 +185,10 @@ ostream& operator<<(ostream& out, const VectorADT& pt)
 	return out;
 }//end
 
+/*
 //curr capacity
 int VectorADT::curr_capacity() const
 {//start
 	return capacity;
 }//end
+*/
