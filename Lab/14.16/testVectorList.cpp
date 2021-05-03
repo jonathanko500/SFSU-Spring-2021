@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include "VectorADT.h"
 
 
 using namespace std;
@@ -7,5 +7,7 @@ using namespace std;
 
 int main()
 {//start
-	cout << "hello";
+	VectorADT v1();
+
+	cout << v1;
 }//end

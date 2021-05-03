@@ -28,7 +28,7 @@ public:
 	int length() const;//return size
 	double& operator[](const int& pt);//return specific element
 	VectorADT operator+ (VectorADT add);//add two adt arrats
-	friend ostream& operator<<(ostream& out, const VectorADT& pt);//prints array
+	friend std::ostream& operator<<(std::ostream& out, const VectorADT& pt);//prints array
 	int curr_capacity() const;
 
 };//end class
