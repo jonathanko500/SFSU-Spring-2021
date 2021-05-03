@@ -1,0 +1,5 @@
+﻿  Source.cpp
+  VectorADT.cpp
+  Generating Code...
+VectorADT.obj : error LNK2019: unresolved external symbol "public: int __thiscall VectorADT::length(void)const " (?length@VectorADT@@QBEHXZ) referenced in function "class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl operator<<(class std::basic_ostream<char,struct std::char_traits<char> > &,class VectorADT const &)" (??6@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AAV01@ABVVectorADT@@@Z)
+C:\Users\Jonathan\Desktop\SFSU-Spring-2021\Lab\14.16v2\Debug\14.16v2.exe : fatal error LNK1120: 1 unresolved externals
