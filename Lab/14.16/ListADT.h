@@ -31,7 +31,7 @@ class ListADT
 	int operator[](const int& pt);
 	friend ostream& operator<<(ostream& out, const ListADT& pt);
 private:
-	int size; 
+	int size;
 	Node* head;
 };//end
 

@@ -13,6 +13,7 @@ VectorADT::VectorADT() :size(0), capacity(10)
 	}
 }//end
 
+
 //big 3
 
 //destructor
@@ -21,7 +22,7 @@ VectorADT::~VectorADT()
 	if (array != nullptr)
 	{//check to see if pointer is pointing to something
 		//delete pointee
-		delete [ ] array;
+		delete[] array;
 		//point to null pointee
 		array = nullptr;
 		size = 0;
@@ -30,14 +31,14 @@ VectorADT::~VectorADT()
 }//end
 
 //copy
-VectorADT::VectorADT(const VectorADT& orig): size(orig.size), capacity(orig.capacity)
+VectorADT::VectorADT(const VectorADT& orig) : size(orig.size), capacity(orig.capacity)
 {//start
 	//make new
-	
+
 	array = new double[capacity];
 	for (int i = 0; i < size; i++)
 	{
-		
+
 		array[i] = orig.array[i];
 	}
 }//end
@@ -82,7 +83,7 @@ void VectorADT::push_back(double val)
 		try
 		{
 			temp = new double[capacity + 1];
-			
+
 		}
 		catch (bad_alloc& x)
 		{
@@ -103,10 +104,8 @@ void VectorADT::push_back(double val)
 //resize
 void VectorADT::resize(int newSize)
 {//start
-	double* temp;
 	if (newSize <= size)
 	{//makes current array with new size
-
 		size = newSize;
 	}
 	else
@@ -114,27 +113,27 @@ void VectorADT::resize(int newSize)
 		//new array needed to accomadqate for new size
 		if (newSize <= capacity)
 		{
-			temp = new double[newSize];
+			double* temp = new double[newSize];
 
 			for (int i = 0; i < size; i++)
 			{
 				//set elements of temp[] to array[]
-				temp[i] = array[i]; 
+				temp[i] = array[i];
 				delete[] array;
 				array = temp;
-			}			
+			}
 		}
 		else
 		{//newSize > capacity
 			capacity = 2 * newSize;
-			temp = new double[newSize];
+			double* temp = new double[newSize];
 			for (int i = 0; i < size; i++)
 			{
 				//set elements of temp[] to ptr[]
-				temp[i] = array[i]; 
+				temp[i] = array[i];
 				delete[] array;
 				array = temp;
-			}			
+			}
 		}
 		size = newSize;
 	}//end newSize > size
@@ -147,7 +146,7 @@ void VectorADT::pop_back()
 	{
 		for (int i = 0; i < size; i++)
 		{
-			if (i = (size-1))
+			if (i = (size - 1))
 			{
 				array[i] = 0.0;
 			}
@@ -196,6 +195,7 @@ int VectorADT::curr_capacity() const
 //operator <<
 ostream& operator<<(ostream& out, const VectorADT& pt)
 {//start
+	double* temp;
 	for (int i = 0; i < pt.length(); i++)
 	{
 		if (i != (pt.length() - 1))
@@ -206,7 +206,7 @@ ostream& operator<<(ostream& out, const VectorADT& pt)
 		{
 			out << pt.array[i];
 		}
-		
+
 	}
 	return out;
 }//end

@@ -8,7 +8,7 @@ using namespace std;
 class VectorADT
 {//start class
 private:
-	double * array;
+	double* array;
 	int size;    //the number of doubles stored in array
 	int capacity;  //the maximum number of doubles that can be stored in array
 
@@ -19,7 +19,7 @@ public:
 	~VectorADT();//destructor	
 	VectorADT(const VectorADT& orig);//copy
 	void operator= (const VectorADT& copy);//assignment operator
-	
+
 	//other functions
 	void push_back(double val);//add val to end of array
 	void resize(int newSize);//resize array
@@ -29,7 +29,7 @@ public:
 	VectorADT operator+ (VectorADT add);//add two adt arrats
 	friend std::ostream& operator<<(std::ostream& out, const VectorADT& pt);//prints array
 	int curr_capacity() const;
-	
+
 };//end class
 
 

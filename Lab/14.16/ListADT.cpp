@@ -18,7 +18,7 @@ Node::Node(int val)
 //listADT class
 
 //default constuctor
-ListADT::ListADT():size(0),head(nullptr)
+ListADT::ListADT() :size(0), head(nullptr)
 {
 
 }
