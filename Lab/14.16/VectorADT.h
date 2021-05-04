@@ -15,10 +15,6 @@ private:
 public:
 	//default constructor
 	VectorADT();
-
-	
-	void printEverything();
-	
 	//big 3
 	~VectorADT();//destructor	
 	VectorADT(const VectorADT& orig);//copy

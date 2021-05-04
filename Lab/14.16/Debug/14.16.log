@@ -1,4 +1,2 @@
-﻿  VectorADT.cpp
-C:\Users\Jonathan\Desktop\SFSU-Spring-2021\Lab\14.16\VectorADT.cpp(107,21): warning C4101: 'x': unreferenced local variable
-C:\Users\Jonathan\Desktop\SFSU-Spring-2021\Lab\14.16\VectorADT.cpp(217,10): warning C4101: 'temp': unreferenced local variable
+﻿  testVectorList.cpp
   14.16.vcxproj -> C:\Users\Jonathan\Desktop\SFSU-Spring-2021\Lab\14.16\Debug\14.16.exe
