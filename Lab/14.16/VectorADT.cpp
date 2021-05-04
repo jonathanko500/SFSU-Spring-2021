@@ -14,6 +14,25 @@ VectorADT::VectorADT() :size(0), capacity(10)
 }//end
 
 
+void VectorADT::printEverything()
+{
+	cout << "capacity = " << capacity << endl;
+	cout << "size = " << size << endl;
+	if (array != nullptr)
+	{
+		for (int i = 0; i < capacity; i++)
+		{
+			cout << array[i] << ", ";
+		}
+		cout << endl;
+	}
+	else
+	{
+		cout << "nullptr" << endl;
+	}
+	
+}
+
 //big 3
 
 //destructor
@@ -33,10 +52,12 @@ VectorADT::~VectorADT()
 //copy
 VectorADT::VectorADT(const VectorADT& orig): size(orig.size), capacity(orig.capacity)
 {//start
-	//make new 
+	//make new
+	
 	array = new double[capacity];
 	for (int i = 0; i < size; i++)
 	{
+		
 		array[i] = orig.array[i];
 	}
 }//end
@@ -77,6 +98,16 @@ void VectorADT::push_back(double val)
 	else
 	{
 		double* temp = nullptr;
+
+		try
+		{
+			temp = new double[capacity + 1];
+			
+		}
+		catch (bad_alloc& x)
+		{
+			cerr << "VectorADT push_back: " << endl;
+		}
 		for (int i = 0; i < size; i++)
 		{
 			temp[i] = array[i];
@@ -134,7 +165,7 @@ void VectorADT::pop_back()
 	{
 		for (int i = 0; i < size; i++)
 		{
-			if (i = size - 1)
+			if (i = (size-1))
 			{
 				array[i] = 0.0;
 			}
@@ -183,9 +214,18 @@ int VectorADT::curr_capacity() const
 //operator <<
 ostream& operator<<(ostream& out, const VectorADT& pt)
 {//start
+	double* temp;
 	for (int i = 0; i < pt.length(); i++)
 	{
-		out << pt.array[i] <<", ";
+		if (i != (pt.length() - 1))
+		{
+			out << pt.array[i] << ", ";
+		}
+		else
+		{
+			out << pt.array[i];
+		}
+		
 	}
 	return out;
 }//end

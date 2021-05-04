@@ -1,4 +1,4 @@
-﻿  testVectorList.cpp
-testVectorList.obj : error LNK2019: unresolved external symbol "class VectorADT __cdecl v1(void)" (?v1@@YA?AVVectorADT@@XZ) referenced in function _main
-VectorADT.obj : error LNK2019: unresolved external symbol "public: int __thiscall VectorADT::length(void)const " (?length@VectorADT@@QBEHXZ) referenced in function "class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl operator<<(class std::basic_ostream<char,struct std::char_traits<char> > &,class VectorADT const &)" (??6@YAAAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AAV01@ABVVectorADT@@@Z)
-C:\Users\Jonathan\Desktop\SFSU-Spring-2021\Lab\14.16\Debug\14.16.exe : fatal error LNK1120: 2 unresolved externals
+﻿  VectorADT.cpp
+C:\Users\Jonathan\Desktop\SFSU-Spring-2021\Lab\14.16\VectorADT.cpp(107,21): warning C4101: 'x': unreferenced local variable
+C:\Users\Jonathan\Desktop\SFSU-Spring-2021\Lab\14.16\VectorADT.cpp(217,10): warning C4101: 'temp': unreferenced local variable
+  14.16.vcxproj -> C:\Users\Jonathan\Desktop\SFSU-Spring-2021\Lab\14.16\Debug\14.16.exe
