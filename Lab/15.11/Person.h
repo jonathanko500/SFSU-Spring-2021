@@ -16,12 +16,14 @@ public:
     //copy constructor
     Person(const Person& clone);
 
+
     string getPlace(int i) const; //return the i-th place in the placesVisited array if i is valid; otherwise return "out-of-boundary".
 
     virtual string getEmail() const; //return personalEmail
     virtual void setEmail(string new_email); //new_email-->personalEmail
     virtual string getTypeOfObj() const; //return "Person"
 
+    void printALL();
 
 private:
     int SSN;

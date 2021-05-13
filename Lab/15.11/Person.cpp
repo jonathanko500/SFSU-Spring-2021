@@ -34,11 +34,20 @@ Person::Person(const Person& clone):SSN(clone.SSN), name(clone.name), personalEm
 	}
 }//end
 
-
 //opertor =
-void::Person operator=(const Person& rhs)
+Person Person :: operator= (const Person& rhs)
 {//start
-
+	SSN = rhs.SSN;
+	name = rhs.name;
+	personalEmail = rhs.personalEmail;
+	cntPlaces = rhs.cntPlaces;
+	delete[] placesVisited;
+	placesVisited = new string[cntPlaces];
+	for (int i = 0; i < cntPlaces; i++)
+	{
+		placesVisited[i] = rhs.placesVisited[i];
+	}
+	return *this;
 }//end
 
 //other functions
@@ -64,4 +73,31 @@ string Person::getPlace(int i) const
 		return "out-of-boundary";
 	}
 	return placesVisited[i];
+}//end
+
+void Person::printALL()
+{//start
+	/*
+	int SSN;
+	string name;
+	string personalEmail;
+
+	string* placesVisited;
+	int cntPlaces; //companion variable of the above pointer
+	*/
+	cout << SSN << endl;
+	cout << name << endl;
+	cout << personalEmail << endl;
+	cout << cntPlaces << endl;
+	for (int i = 0; i < cntPlaces; i++)
+	{
+		if (i != (cntPlaces - 1))
+		{
+			cout << placesVisited[i] << ", ";
+		}
+		else
+		{
+			cout << placesVisited[i] << endl;
+		}
+	}
 }//end
