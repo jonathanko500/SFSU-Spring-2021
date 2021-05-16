@@ -6,11 +6,24 @@ using namespace std;
 
 int main()
 {//start main
-	Person p1;
-	cout << p1.getEmail()<<endl;
-	p1.printALL();
-	cout << "************" << endl;
-	Person p2 = p1;
-	p2.setEmail("jkko");
-	p2.printALL();
+	Person** ppl;
+	int p = 16, e = 12;
+	int a = p + e;
+	mixedArray(ppl, p, e);
+	for (int i = 0; i < p + e; i++)
+	{
+		if (i < p)
+		{
+			cout << "PERSON " << endl;
+		}
+		else
+		{
+			cout << "EMPLOYEE " << endl;
+		}
+		ppl[i]->printALL();
+		cout << "**********" << endl;
+	}
+	deleteMixedArray(ppl, a);
+
+	return 0;
 }//end main

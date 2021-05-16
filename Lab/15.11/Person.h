@@ -23,7 +23,7 @@ public:
     virtual void setEmail(string new_email); //new_email-->personalEmail
     virtual string getTypeOfObj() const; //return "Person"
 
-    void printALL();
+    virtual void printALL();
 
 private:
     int SSN;

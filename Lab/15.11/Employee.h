@@ -22,6 +22,8 @@ public:
     virtual string getEmail() const; //return work_email
     virtual void setEmail(string new_email); //new_email-->work_email
     virtual string getTypeOfObj() const; //return "Employee"
+
+    virtual void printALL();
 };//end class
 
 //see below for more details about this function. 

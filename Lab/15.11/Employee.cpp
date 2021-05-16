@@ -53,14 +53,6 @@ Employee Employee :: operator=(const Employee& rhs)
 	return *this;
 }//end
 
-/*
-double getChangeRate(int i) const;//return the i-th rate in the sal_change_rates array if i is valid; otherwise return -1.00
-
-virtual string getEmail() const; //return work_email
-virtual void setEmail(string new_email); //new_email-->work_email
-virtual string getTypeOfObj() const; //return "Employee"
-*/
-
 //other functions
 
 double Employee::getChangeRate(int i) const
@@ -85,4 +77,55 @@ string Employee::getEmail() const
 string Employee::getTypeOfObj() const
 {//start
 	return "Employee";
+}//end
+
+void Employee::printALL()
+{
+	Person::printALL();
+	cout << work_email << endl;
+	cout << salary << endl;	
+	cout << cnt_sal_changes << endl;
+	for (int i = 0; i < cnt_sal_changes; i++)
+	{
+		if (i != (cnt_sal_changes - 1))
+		{
+			cout << sal_change_rates[i] << ", ";
+		}
+		else
+		{
+			cout << sal_change_rates[i] << endl;
+		}
+	}
+}
+
+//non-employee functions
+void mixedArray(Person**& arrayPersonEmp, int numPersons, int numEmployees)
+{//start
+	int all = numPersons + numEmployees;
+	arrayPersonEmp = new Person * [all];
+	for (int i = 0; i < all; i++)
+	{
+		if (i < numPersons)
+		{//put numPerson Person obj in array
+			arrayPersonEmp[i] = new Person;
+			arrayPersonEmp[i]->setEmail("personal@gmail.com");
+		}
+		else
+		{//put numEmployee Employee obj in array
+			arrayPersonEmp[i] = new Employee;
+			arrayPersonEmp[i]->setEmail("work@gmail.com");
+		}
+	}
+}//end
+
+void deleteMixedArray(Person**& arrayPersonEmp, int size)
+{//START
+	if (arrayPersonEmp != nullptr)
+	{
+		for (int i = 0; i < size; i++)
+		{
+			delete arrayPersonEmp[i];
+		}
+		delete[] arrayPersonEmp;
+	}
 }//end
