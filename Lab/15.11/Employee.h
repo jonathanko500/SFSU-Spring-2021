@@ -12,7 +12,8 @@ private:
     int    cnt_sal_changes;
 public:
     virtual ~Employee();
-    Employee(); //0.0->salary, 10->cnt_sal_changes, "work@"->work_email, sal_change_rates: allocate memory to hold 10 doubles, each of which has an initial value of 0.0
+    //0.0->salary, 10->cnt_sal_changes, "work@"->work_email, sal_change_rates: allocate memory to hold 10 doubles, each of which has an initial value of 0.0
+    Employee();    
     Employee(const Employee& clone);
     Employee operator=(const Employee& rhs);
 
@@ -29,4 +30,4 @@ void mixedArray(Person**& arrayPersonEmp, int numPersons, int numEmployees);
 //see below for more details about this function. 
 void deleteMixedArray(Person**& arrayPersonEmp, int size);
 
-#endif /* Employee_hpp */
+#endif
