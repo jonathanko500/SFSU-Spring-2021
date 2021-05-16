@@ -77,14 +77,6 @@ string Person::getPlace(int i) const
 
 void Person::printALL()
 {//start
-	/*
-	int SSN;
-	string name;
-	string personalEmail;
-
-	string* placesVisited;
-	int cntPlaces; //companion variable of the above pointer
-	*/
 	cout << SSN << endl;
 	cout << name << endl;
 	cout << personalEmail << endl;
